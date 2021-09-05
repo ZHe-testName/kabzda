@@ -4,6 +4,7 @@ import classes from './accordion.module.css';
 
 type AccordionPropsType = {
     title: string,
+    collapsed: boolean,
     itemsNum?: number,
 };
 
@@ -16,13 +17,13 @@ type AccordionBodyPropsType = {
 };
 
 function Accordion(props: AccordionPropsType) {
-    const {title, itemsNum = 0} = props;
+    const {title, collapsed, itemsNum = 0} = props;
 
     return (
         <div className={classes.accordeon}>
             <AccordionTitle title={title}/>
 
-            <AccordionBody itemsNums={itemsNum}/>
+            {!collapsed && <AccordionBody itemsNums={itemsNum}/>}
         </div>
     );
 };
@@ -37,7 +38,7 @@ function AccordionTitle(props: AccordionTitlePropsType) {
     const liArr = [];
 
     while (liArr.length < props.itemsNums) {
-        liArr.push(<li>{liArr.length + 1}</li>)
+        liArr.push(<li key={liArr.length}>{liArr.length + 1}</li>)
     };
 
     return (

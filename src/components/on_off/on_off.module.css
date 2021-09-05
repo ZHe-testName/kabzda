@@ -1,0 +1,60 @@
+@keyframes buttonclick {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(0.9);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+.onOffWrap {
+    display: flex;
+    align-items: center;
+    width: 250px;    
+    background-color: darkgray;
+    margin-top: 15px;
+    padding: 10px;
+}
+
+    .onOffWrap > button {
+        cursor: pointer;
+        border: 1px solid grey;
+        padding: 5px;
+        margin-right: 10px;
+    }
+
+    .onOffWrap > button:focus {
+        animation-name: buttonclick;
+        animation-duration: 0.4s;
+    }
+
+    .on {
+        background-color: lightgreen;
+    }
+
+    .off {
+        background-color: tomato;
+    }
+
+    .lamp {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        margin-left: 35px;
+        
+    }
+
+     .lampOn {
+        border: 1px solid lightgrey;
+        background-color: yellow;
+        box-shadow: 0px 0px 10px 4px yellow;
+     }
+
+     .lampOff {
+        border: 1px solid rgb(61, 61, 61);
+        box-shadow: 0px 0px 4px 0px rgb(0, 0, 0);
+     }

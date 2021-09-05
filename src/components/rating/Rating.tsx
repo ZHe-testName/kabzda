@@ -15,12 +15,14 @@ function  Rating(props: RatingPropsType) {
 
     const starsArr = [];
 
-    for (let i = 0; i < starsNum; i++) {
-        starsArr.push(<Star isChecked/>)
+    let i = 0
+
+    for (i; i < starsNum; i++) {
+        starsArr.push(<Star isChecked key={i}/>)
     };
 
-    for (let i = 0; i < (5 - starsNum); i++) {
-        starsArr.push(<Star isChecked={false}/>)
+    for (i; i < 5; i++) {
+        starsArr.push(<Star isChecked={false} key={i}/>)
     };
 
     return (
