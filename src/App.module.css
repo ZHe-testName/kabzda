@@ -1,24 +1,3 @@
 .app {
     padding: 15px;
 }
-
-.starWrap {
-    display: flex;
-    width: 180px;
-    margin-top: 20px;
-    justify-content: space-between;
-    background-color: rgb(124, 124, 124);
-}
-
-    .star {
-        width: 30px;
-        height: 30px;
-        background-image: url(./imgs/star_green.svg);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-
-.accordeon {
-    margin-top: 20px;
-}
