@@ -1,34 +1,31 @@
-import React, { useState } from "react";
+import React from "react";
 
 import classes from './on_off.module.css';
 
 type OnOffPropsType = {
-    on: boolean,
+    isOn: boolean,
+    onClick: (value: boolean) => void,
 };
 
 function OnOff(props: OnOffPropsType) {
-    const [on, switchOnOff] = useState(props.on);
-
-    const onClickHandler = (value: boolean) => {
-        switchOnOff(value);
-    };
+    const {isOn, onClick} = props;
 
     return (
         <div className={classes.onOffWrap}>
             <button
                 className={classes.on}
-                onClick={() => onClickHandler(true)}>
+                onClick={() => onClick(true)}>
                 ON
             </button>
 
             <button 
                 className={classes.off}
-                onClick={() => onClickHandler(false)}>
+                onClick={() => onClick(false)}>
                 OFF
             </button>
 
             <div
-                className={`${classes.lamp} ${on ? classes.lampOn : classes.lampOff}`}>
+                className={`${classes.lamp} ${isOn ? classes.lampOn : classes.lampOff}`}>
             </div>
         </div>
     );

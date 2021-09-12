@@ -1,3 +1,7 @@
 .accordeon {
     margin-top: 20px;
 }
+
+    .accordeon h3{
+        cursor: pointer;
+    }

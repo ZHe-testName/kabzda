@@ -22,6 +22,7 @@ function  Rating() {
 
     const [starsArr, setRating] = useState<any[]>(prevStarsArr);
 
+    //Пофиксить any
     function onClickHandler(e: any) {
         // Решение так себе но пока так 
         //по тому что работает)))
@@ -30,7 +31,7 @@ function  Rating() {
         let j = 0
 
         if (isNaN(i)) return;
-        
+
         prevStarsArr = [];
 
         for (j; j < i; j++) {

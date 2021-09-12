@@ -10,6 +10,7 @@ type AccordionPropsType = {
 
 type AccordionTitlePropsType = {
     title: string,
+    onClick: () => void,
 };
 
 type AccordionBodyPropsType = {
@@ -27,11 +28,9 @@ function Accordion(props: AccordionPropsType) {
 
     return (
         <div className={classes.accordeon}>
-            <AccordionTitle title={title}/>
-
-            <button onClick={() => toogleHandler(!collapsed)}>
-                TOOGLE
-            </button>
+            <AccordionTitle 
+                        title={title}
+                        onClick={() => toogleHandler(!collapsed)}/>
 
             {!collapsed && <AccordionBody itemsNums={itemsNum}/>}
         </div>
@@ -40,7 +39,8 @@ function Accordion(props: AccordionPropsType) {
 
 function AccordionTitle(props: AccordionTitlePropsType) {
     return (
-        <h3>{props.title}</h3>
+        <h3
+            onClick={props.onClick}>{props.title}</h3>
     );
 };
   
