@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 import classes from './accordion.module.css';
 
 type AccordionPropsType = {
     title: string,
-    collapsed: boolean,
+    // collapsed: boolean,
     itemsNum?: number,
 };
 
@@ -17,11 +17,21 @@ type AccordionBodyPropsType = {
 };
 
 function Accordion(props: AccordionPropsType) {
-    const {title, collapsed, itemsNum = 0} = props;
+    const {title, itemsNum = 0} = props;
+
+    const [collapsed, toogleCollaps] = useState(true);
+
+    function toogleHandler(isCollapsed: boolean) {
+        toogleCollaps(isCollapsed);
+    };
 
     return (
         <div className={classes.accordeon}>
             <AccordionTitle title={title}/>
+
+            <button onClick={() => toogleHandler(!collapsed)}>
+                TOOGLE
+            </button>
 
             {!collapsed && <AccordionBody itemsNums={itemsNum}/>}
         </div>

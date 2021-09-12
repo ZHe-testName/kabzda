@@ -10,16 +10,14 @@ function App() {
     <div className={classes.app}>
       <PageTitle title='Main Page Title'/>
 
-      <Rating starsNum={4}/>
+      <Rating />
 
       <Accordion 
               title='First Accordion'
-              collapsed
               itemsNum={6}/>
 
       <Accordion 
               title='Second Accordion'
-              collapsed={false}
               itemsNum={4}/>
 
       <OnOff on={false}/>

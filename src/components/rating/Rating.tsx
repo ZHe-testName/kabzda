@@ -1,41 +1,65 @@
-import React from "react";
+import React, { useState } from "react";
 
 import classes from './rating.module.css';
 
 type StarPropsType = {
     isChecked: boolean,
+    num: number,
 };
 
-type RatingPropsType = {
-    starsNum: 0 | 1 | 2 | 3 | 4 | 5,
-};
+// type UseStaeType = Array<StarPropsType>;
 
-function  Rating(props: RatingPropsType) {
-    const {starsNum} = props;
+// type RatingPropsType = {
+//     starsNum: 0 | 1 | 2 | 3 | 4 | 5,
+// };
 
-    const starsArr = [];
+function  Rating() {
+    let prevStarsArr: Array<Object> = [];
 
-    let i = 0
-
-    for (i; i < starsNum; i++) {
-        starsArr.push(<Star isChecked key={i}/>)
+    for (let i = 0; i < 5; i++) {
+        prevStarsArr.push(<Star isChecked={false} key={i} num={i}/>)
     };
 
-    for (i; i < 5; i++) {
-        starsArr.push(<Star isChecked={false} key={i}/>)
+    const [starsArr, setRating] = useState<any[]>(prevStarsArr);
+
+    function onClickHandler(e: any) {
+        // Решение так себе но пока так 
+        //по тому что работает)))
+        const i = Number(e.target.dataset.num) + 1;
+
+        let j = 0
+
+        if (isNaN(i)) return;
+        
+        prevStarsArr = [];
+
+        for (j; j < i; j++) {
+            prevStarsArr.push(<Star isChecked key={j} num={j}/>)
+        };
+    
+        for (j; j < 5; j++) {
+            prevStarsArr.push(<Star isChecked={false} key={j} num={j}/>)
+        };
+
+        setRating(prevStarsArr);
     };
 
     return (
-      <div className={classes.starWrap}>
+      <div  
+        className={classes.starWrap}
+        onClick={(e) => onClickHandler(e)}>
         {starsArr}
       </div>
     );
 };
   
 function Star(props: StarPropsType) {
-    return (<div className={`${classes.star} ${props.isChecked ? classes.lightStar : classes.darkStar}`}>
-
-    </div>);
+    return (
+        <div 
+            className={`${classes.star} ${props.isChecked ? classes.lightStar : classes.darkStar}`}
+            data-num={props.num}>
+        </div>
+    );
 };
 
 export default Rating;
