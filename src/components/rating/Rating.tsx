@@ -9,14 +9,19 @@ type StarPropsType = {
 
 // type UseStaeType = Array<StarPropsType>;
 
-// type RatingPropsType = {
-//     starsNum: 0 | 1 | 2 | 3 | 4 | 5,
-// };
+type RatingPropsType = {
+    startRaiting: 0 | 1 | 2 | 3 | 4 | 5,
+};
 
-function  Rating() {
+function  Rating(props: RatingPropsType) {
     let prevStarsArr: Array<Object> = [];
+    let i = 0;
 
-    for (let i = 0; i < 5; i++) {
+    for (i; i < props.startRaiting; i++) {
+        prevStarsArr.push(<Star isChecked={true} key={i} num={i}/>)
+    };
+
+    for (i; i < 5; i++) {
         prevStarsArr.push(<Star isChecked={false} key={i} num={i}/>)
     };
 

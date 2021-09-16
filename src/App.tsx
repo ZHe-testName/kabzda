@@ -16,7 +16,7 @@ function App() {
     <div className={classes.app}>
       <PageTitle title='Main Page Title'/>
 
-      <Rating />
+      <Rating startRaiting={3}/>
 
       <Accordion 
               title='First Accordion'

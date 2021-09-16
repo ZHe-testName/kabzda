@@ -2,7 +2,7 @@ import React from "react";
 
 import classes from './on_off.module.css';
 
-type OnOffPropsType = {
+export type OnOffPropsType = {
     isOn: boolean,
     onClick: (value: boolean) => void,
 };
